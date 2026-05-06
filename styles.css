@@ -1,0 +1,746 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f7;
+    margin: 0;
+    padding: 20px;
+}
+
+/* CONTENEDOR CENTRADO AL 50% */
+.container {
+    width: 40%;
+    margin: auto;
+}
+
+/* TARJETAS */
+.card {
+    background: #ffffff;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* TITULOS */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* INPUTS BONITOS */
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* EFECTO AL SELECCIONAR */
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    outline: none;
+}
+
+/* BOTONES MODERNOS CON RELIEVE */
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(145deg, #28a745, #1e7e34); /* 🔁 CAMBIO */
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #1c6b2f, 0 8px 15px rgba(0,0,0,0.1); /* 🔁 CAMBIO */
+    transition: all 0.15s ease;
+}
+
+/* EFECTO CLICK */
+button:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #1c6b2f; /* 🔁 CAMBIO */
+}
+
+/* RESULTADOS */
+p, h3 {
+    margin-top: 10px;
+}
+
+/* TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background: #f5f7fa;
+}
+
+/* SEMÁFORO MÁS BONITO */
+.semaforo {
+    margin: 15px auto;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: gray;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE (IMPORTANTE PARA CELULAR) */
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+    /* 🔥 FORZAR UNA SOLA COLUMNA */
+    .fila {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: #f9fbff;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 12px;
+    }
+
+    /* Ocultar encabezado */
+    .encabezado {
+        display: none;
+    }
+
+    /* Estilo número (Estilo 1, 2, 3) */
+    .fila > div:first-child {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    /* Inputs más cómodos */
+    .fila input {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* ENCABEZADO */
+.encabezado {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* INPUTS DENTRO DE TABLA */
+.fila input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* ===== RESPONSIVE PARA CELULAR ===== */
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        padding: 14px;
+        font-size: 16px; /* importante para celular */
+    }
+
+    button {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* TABLA DE ESTILOS EN COLUMNA */
+    .fila {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        text-align: left;
+    }
+
+    .encabezado {
+        display: none; /* ocultamos encabezado en celular */
+    }
+
+    /* Convertir cada fila en tarjeta */
+    .fila {
+        background: #f9fbff;
+        padding: 10px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .fila div:first-child {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Tabla metas */
+    table {
+        font-size: 14px;
+    }
+
+    /* Semáforo más pequeño */
+    .semaforo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* CAMPOS */
+.campo {
+    display: flex;
+    flex-direction: column;
+}
+
+/* OCULTAR LABELS EN PC */
+.campo label {
+    display: none;
+    font-size: 13px;
+    margin-bottom: 3px;
+    color: #555;
+}
+
+/* TITULO ESTILO */
+.titulo-estilo {
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .fila {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: #f9fbff;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    /* MOSTRAR LABELS EN CELULAR */
+    .campo label {
+        display: block;
+    }
+
+    /* OCULTAR ENCABEZADO SOLO EN CELULAR */
+    .encabezado {
+        display: none;
+    }
+}
+
+/* GRID TIPO TABLA */
+.tabla-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* ENCABEZADOS */
+.header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* INPUTS */
+.tabla-grid input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* CONTENEDOR CON SCROLL */
+.tabla-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* TABLA FIJA */
+.tabla-grid {
+    display: grid;
+    grid-template-columns: 80px 150px 120px;
+    gap: 10px;
+    min-width: 350px; /* 🔥 CLAVE */
+    align-items: center;
+}
+
+/* ENCABEZADOS */
+.header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* INPUTS */
+.tabla-grid input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* CONTENEDOR SCROLL (MÓVIL) */
+.tabla-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* GRID BASE */
+.tabla-grid {
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* TABLA SIMPLE (2 COLUMNAS) */
+.tabla-grid.simple {
+    grid-template-columns: 1fr 2fr;
+    min-width: 300px;
+}
+
+/* TABLA COMPLEJA (3 COLUMNAS) */
+.tabla-grid:not(.simple) {
+    grid-template-columns: 1fr 2fr 2fr;
+    min-width: 350px;
+}
+
+/* ENCABEZADOS */
+.header {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* INPUTS */
+.tabla-grid input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* RESULTADOS DESTACADOS */
+.resultado {
+    display: block;
+    background: #e8f2ff;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    color: #0b5ed7;
+    border: 1px solid #b6d4fe;
+}
+
+.resultado {
+    transition: all 0.2s ease;
+}
+
+.resultado:empty {
+    background: #f1f1f1;
+}
+
+input {
+    background-color: #fdecea;
+    border: 1px solid #f5c2c7;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    background-color: #fff;
+    border-color: #dc3545;
+    box-shadow: 0 0 5px rgba(220,53,69,0.3);
+    outline: none;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+}
+
+.botones button {
+    width: 100%;
+}
+
+.botones {
+    display: flex;
+    gap: 15px; /* 🔥 separación */
+    margin-top: 15px;
+}
+
+.botones button {
+    flex: 1; /* ambos del mismo tamaño */
+}
+
+/* BOTÓN LIMPIAR (ADVERTENCIA) */
+.btn-limpiar {
+    background: linear-gradient(145deg, #ffc107, #e0a800);
+    color: #333;
+    box-shadow: 0 6px 0 #c69500, 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.btn-limpiar:active {
+    box-shadow: 0 3px 0 #c69500;
+}
+
+/* SELECTOR DE MODO PRO */
+#modoCalculo {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    /* AZUL INTENSO */
+    background: linear-gradient(145deg, #004aad, #002f6c);
+    color: white;
+
+    /* SOMBRA */
+    box-shadow: 0 6px 0 #001f4d, 0 8px 15px rgba(0,0,0,0.2);
+
+    /* EFECTO SUAVE */
+    transition: all 0.2s ease;
+}
+
+/* EFECTO CLICK */
+#modoCalculo:active {
+    transform: translateY(3px);
+    box-shadow: 0 3px 0 #001f4d;
+}
+
+/* EFECTO HOVER (PC) */
+#modoCalculo:hover {
+    background: linear-gradient(145deg, #005ce6, #003399);
+}
+
+label[for="modoCalculo"] {
+    font-weight: bold;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* FORZAR ESTILO EN TODOS LOS DISPOSITIVOS */
+select#modoCalculo {
+    width: 100%;
+    padding: 14px;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    border-radius: 10px;
+    border: none !important;
+    outline: none;
+
+    background: linear-gradient(145deg, #004aad, #002f6c) !important;
+    color: white !important;
+
+    box-shadow: 0 6px 0 #001f4d, 0 8px 15px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+/* OPCIONES DEL DESPLEGABLE */
+#modoCalculo option {
+    background: white;
+    color: black;
+}
+
+/* SWITCH MODO OSCURO */
+.modo-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + .slider {
+    background: #007aff;
+}
+
+input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+/* MODO OSCURO */
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .card {
+    background: #1e1e1e;
+}
+
+body.dark-mode input {
+    background-color: #2a2a2a !important;
+    color: white;
+    border-color: #555 !important;
+}
+
+.slider {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   🌙 MODO OSCURO FULL
+========================= */
+
+body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* TARJETAS */
+body.dark-mode .card {
+    background: #1e293b;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+/* TITULOS */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: #f1f5f9;
+}
+
+/* TABLAS */
+body.dark-mode table {
+    background: #1e293b;
+    color: white;
+}
+
+body.dark-mode th {
+    background: #334155;
+    color: #f8fafc;
+}
+
+body.dark-mode td {
+    border-color: #334155;
+}
+
+/* INPUTS */
+body.dark-mode input {
+    background-color: #020617 !important;
+    color: #f8fafc !important;
+    border-color: #475569 !important;
+}
+
+/* INPUT CUANDO TIENE VALOR (verde tuyo) */
+body.dark-mode input[style*="#28a745"] {
+    background-color: #064e3b !important;
+    border-color: #22c55e !important;
+}
+
+/* INPUT ERROR (rojo tuyo) */
+body.dark-mode input[style*="#f5c2c7"] {
+    background-color: #7f1d1d !important;
+    border-color: #ef4444 !important;
+}
+
+/* BOTONES */
+body.dark-mode button {
+    background: linear-gradient(145deg, #1d4ed8, #1e40af);
+    color: white;
+}
+
+/* BOTON LIMPIAR (amarillo advertencia) */
+body.dark-mode .btn-limpiar {
+    background: linear-gradient(145deg, #facc15, #ca8a04);
+    color: black;
+}
+
+/* HOVER BOTONES */
+body.dark-mode button:hover {
+    transform: scale(1.03);
+    opacity: 0.95;
+}
+
+/* SELECT MODO */
+body.dark-mode select#modoCalculo {
+    background: linear-gradient(145deg, #1e3a8a, #1e40af) !important;
+    color: white !important;
+}
+
+/* RESULTADO BOX */
+body.dark-mode .resultado-box {
+    background: #020617;
+    border: 1px solid #334155;
+}
+
+/* SEMÁFORO MÁS BRILLANTE */
+body.dark-mode .semaforo {
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+
+/* LINEAS / HR */
+body.dark-mode hr {
+    border-color: #334155;
+}
+
+/* 🔥 FIX INPUTS EN MODO OSCURO */
+body.dark-mode input {
+    background-color: #020617 !important; /* fondo oscuro real */
+    color: #ffffff !important; /* texto blanco */
+    border-color: #475569 !important;
+}
+
+/* CUANDO INPUT ES "VALIDO" (VERDE) */
+body.dark-mode input[style*="#28a745"] {
+    background-color: #064e3b !important; /* verde oscuro */
+    color: #d1fae5 !important; /* texto claro */
+    border-color: #22c55e !important;
+}
+
+/* CUANDO INPUT ES "ERROR" (ROJO) */
+body.dark-mode input[style*="#f5c2c7"] {
+    background-color: #7f1d1d !important; /* rojo oscuro */
+    color: #fecaca !important;
+    border-color: #ef4444 !important;
+}
+
+/* =========================
+   ✨ INPUTS PRO DINÁMICOS
+========================= */
+
+input {
+    transition: all 0.25s ease;
+}
+
+/* FOCUS (cuando escribes) */
+input:focus {
+    background-color: #ffffff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+}
+
+/* ESTADO VALIDO */
+.input-ok {
+    background-color: #e9f7ef !important;
+    border-color: #22c55e !important;
+}
+
+/* ESTADO ERROR */
+.input-error {
+    background-color: #fdecea !important;
+    border-color: #ef4444 !important;
+}
+
+/* =========================
+   🌙 MODO OSCURO
+========================= */
+
+body.dark-mode input {
+    background-color: #020617 !important;
+    color: #ffffff !important;
+    border-color: #475569 !important;
+}
+
+/* FOCUS OSCURO */
+body.dark-mode input:focus {
+    background-color: #020617 !important;
+    border-color: #60a5fa !important;
+    box-shadow: 0 0 10px rgba(96,165,250,0.8);
+}
+
+/* OK OSCURO */
+body.dark-mode .input-ok {
+    background-color: #064e3b !important;
+    border-color: #22c55e !important;
+    box-shadow: 0 0 8px rgba(34,197,94,0.6);
+}
+
+/* ERROR OSCURO */
+body.dark-mode .input-error {
+    background-color: #7f1d1d !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 8px rgba(239,68,68,0.6);
+}

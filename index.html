@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>ERP Ingenieria</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="container">
+    <h1>Cálculo de Eficiencia y Meta ERP</h1>
+    <div class="card">
+    <label><strong>Modo de cálculo:</strong></label>
+    <select id="modoCalculo" onchange="cambiarModo()">
+        <option value="completo">Integral (TO Indirectos/Comun)</option>
+        <option value="directo">Solo Linea (TO Directo)</option>
+    </select>
+</div>
+
+    <!-- 1. PORCENTAJE -->
+    <section class="card" id="punto1">
+        <h2>1. Distribución de Personal por Línea ( % )</h2>
+
+       <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Campo</div>
+        <div class="header">Valor</div>
+
+        <div>TO Total Directo Prod.</div>
+        <div><input type="number" id="totalPersonal"></div>
+
+        <div>TO Directo Línea</div>
+        <div><input type="number" id="toLinea"></div>
+
+    </div>
+</div>
+        
+        <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>% Línea</div>
+        <div><span class="resultado" id="porcentajeLinea">0%</span></div>
+
+    </div>
+</div>
+    </section>
+
+    <!-- 2. INDIRECTO -->
+    <section class="card" id="punto2">
+        <h2>2. Personal Indirecto ( Horas )</h2>
+
+       <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Campo</div>
+        <div class="header">Valor</div>
+
+        <div>TO Indirecto</div>
+        <div><input type="number" id="toIndirecto"></div>
+
+        <div>Jornada Laboral</div>
+        <div><input type="number" id="horasIndirecto" value="9.6" step="0.1" placeholder="horasIndirecto"></div>
+
+        <div>Horas Tarde</div>
+        <div><input type="number" id="tardeIndirecto"></div>
+
+    </div>
+</div>
+        
+<div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>Horas Indirecto</div>
+        <div><span class="resultado" id="resultadoIndirecto">0</span></div>
+
+    </div>
+</div>
+    </section>
+
+    <!-- 3. DIRECTO COMUN -->
+    <section class="card" id="punto3">
+        <h2>3. Personal Directo Común ( Horas )</h2>
+
+        <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Campo</div>
+        <div class="header">Valor</div>
+
+        <div>TO Común</div>
+        <div><input type="number" id="toComun"></div>
+
+        <div>Jornada Laboral</div>
+        <div><input type="number" id="horasComun" value="9.6" step="0.1" placeholder="horasComun"></div>
+
+        <div>Horas Tarde</div>
+        <div><input type="number" id="tardeComun"></div>
+
+    </div>
+</div>
+
+<div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>Horas Directo Común</div>
+        <div><span class="resultado" id="resultadoComun">0</span></div>
+
+    </div>
+</div>
+    </section>
+
+    <!-- 4. HORAS ASIGNADAS -->
+    <section class="card" id="punto4">
+        <h2>4. Horas Asignadas a Lineas ( Horas / Linea )</h2>
+
+       <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Campo</div>
+        <div class="header">Valor</div>
+
+        <div>Horas Indirecto</div>
+        <div><input type="number" id="horasIndAsignadas"></div>
+
+        <div>Horas Directo Común</div>
+        <div><input type="number" id="horasComAsignadas"></div>
+
+        <div>% Línea</div>
+        <div><input type="number" id="porcentajeAsignado"></div>
+
+    </div>
+</div>
+
+<div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>Horas (Ind+Comun)</div>
+        <div><span class="resultado" id="sumaHoras">0</span></div>
+
+        <div>Horas Asignadas</div>
+        <div><span class="resultado" id="horasAsignadas">0</span></div>
+
+    </div>
+</div>
+    </section>
+
+    <!-- 5. HORAS POR LINEA -->
+    <section class="card" id="punto5">
+       <h2><span class="num">5.</span> Horas por Línea (TO Directo)</h2>
+
+       <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Campo</div>
+        <div class="header">Valor</div>
+
+        <div>TO Directo Línea</div>
+        <div><input type="number" id="toLineaHoras"></div>
+
+        <div>Jornada Laboral</div>
+        <div><input type="number" id="jornada" value="9.6" step="0.1" placeholder="Horas jornada"></div>
+
+        <div>Horas Tarde</div>
+        <div><input type="number" id="tardeLinea"></div>
+
+    </div>
+</div>
+
+<div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>Horas Línea</div>
+        <div><span class="resultado" id="horasLinea">0</span></div>
+
+    </div>
+</div>
+    </section>
+
+    <!-- 6. TOTAL + MINUTOS -->
+    <section class="card" id="punto6">
+        <h2><span class="num">6.</span> Total Horas y Minutos (Horas TO Directo + Horas Asignados)</h2>
+
+  <div class="tabla-wrapper">
+    <div class="tabla-grid simple">
+
+        <div class="header">Resultado</div>
+        <div class="header">Valor</div>
+
+        <div>Total Horas</div>
+        <div><span class="resultado" id="totalHoras">0</span></div>
+
+        <div>Total Minutos</div>
+        <div><span class="resultado" id="totalMinutos">0</span></div>
+
+    </div>
+</div>
+
+             <button onclick="calcularMinutos()">Calcular</button>
+    </section>
+
+    <!-- 7. ERP FINAL (ACTUALIZADO) -->
+<!-- 7. ERP FINAL -->
+<section class="card full" id="punto7">
+    <h2><span class="num">7.</span> Calculo de Eficiencia y Metas ERP Final</h2>
+
+  <div class="tabla-wrapper">
+    <div class="tabla-grid">
+
+        <div class="header">Estilo</div>
+        <div class="header">Producción</div>
+        <div class="header">SMV</div>
+
+        <div>1</div>
+        <div><input type="number" id="prod1" placeholder="Producción"></div>
+        <div><input type="number" id="smv1" step="0.01" placeholder="SMV"></div>
+
+        <div>2</div>
+        <div><input type="number" id="prod2" placeholder="Producción"></div>
+        <div><input type="number" id="smv2" step="0.01" placeholder="SMV"></div>
+
+        <div>3</div>
+        <div><input type="number" id="prod3" placeholder="Producción"></div>
+        <div><input type="number" id="smv3" step="0.01" placeholder="SMV"></div>
+
+    </div>
+</div>
+
+  <div class="botones">
+    <button onclick="calcularERP()">Calcular Eff. + Metas</button>
+    <button type="button" class="btn-limpiar" onclick="limpiarTodo()">Limpiar</button>
+</div>
+    <div class="resultado-box">
+        <h3>ERP: <span id="resultadoERP">0%</span></h3>
+        <div id="semaforo" class="semaforo"></div>
+    </div>
+
+    <hr>
+
+    <h3>Producción Objetivo</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Meta</th>
+                <th>Producción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+               <td>110%</td>
+               <td id="meta110">0</td>
+           </tr>
+           <tr>
+               <td>105%</td>
+               <td id="meta105">0</td>
+          </tr>
+               <tr style="font-weight:bold; background:#f0f0f0;">
+               <td>100%</td>
+               <td id="meta100">0</td>
+          </tr>
+            <tr>
+                <td>95%</td>
+                <td id="meta95">0</td>
+            </tr>
+            <tr>
+                <td>90%</td>
+                <td id="meta90">0</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>SMV Base: <span id="smvBase">0</span></p>
+</section>
+
+</div>
+    
+<script src="script.js"></script>
+</body>
+</html>
