@@ -744,3 +744,11 @@ body.dark-mode .input-error {
     border-color: #ef4444 !important;
     box-shadow: 0 0 8px rgba(239,68,68,0.6);
 }
+
+#punto1,
+#punto2,
+#punto3,
+#punto4,
+#punto5 {
+    display: none;
+}
