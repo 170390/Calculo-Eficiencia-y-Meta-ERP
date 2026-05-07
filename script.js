@@ -305,40 +305,42 @@ function cambiarModo() {
 
     let modo = document.getElementById("modoCalculo").value;
 
-    let puntos = ["punto1", "punto2", "punto3", "punto4"];
+    // 🔥 CAMPOS QUE SOLO USA MODO COMPLETO
+    let elementos = [
+        "grupoIndirectoLabel",
+        "grupoIndirectoInput",
+        "grupoComunLabel",
+        "grupoComunInput",
+        "grupoTardeIndirectoLabel",
+        "grupoTardeIndirectoInput",
+        "grupoTardeComunLabel",
+        "grupoTardeComunInput"
+    ];
 
-    // MOSTRAR / OCULTAR
-    puntos.forEach(id => {
+    // 🔥 MOSTRAR / OCULTAR CAMPOS
+    elementos.forEach(id => {
+
         let el = document.getElementById(id);
-        if (el) el.style.display = (modo === "directo") ? "none" : "block";
+
+        if (el) {
+            el.style.display = (modo === "directo") ? "none" : "block";
+        }
+
     });
 
-    // RENOMBRAR NUMEROS
-    if (modo === "directo") {
+    // 🔥 RESETEAR VARIABLES
+    horasAsignadasGlobal = 0;
+    horasLineaGlobal = 0;
+    minutosGlobal = 0;
 
-        document.querySelectorAll("#punto5 .num")[0].innerText = "1.";
-        document.querySelectorAll("#punto6 .num")[0].innerText = "2.";
-        document.querySelectorAll("#punto7 .num")[0].innerText = "3.";
+    // 🔥 LIMPIAR RESULTADOS
+    document.getElementById("totalHoras").innerText = "0";
+    document.getElementById("totalMinutos").innerText = "0";
+    document.getElementById("resultadoERP").innerText = "0%";
 
-    } else {
+    let sem = document.getElementById("semaforo");
 
-        document.querySelectorAll("#punto5 .num")[0].innerText = "5.";
-        document.querySelectorAll("#punto6 .num")[0].innerText = "6.";
-        document.querySelectorAll("#punto7 .num")[0].innerText = "7.";
-
-    }
-// 🔥 RESETEAR VARIABLES
-horasAsignadasGlobal = 0;
-horasLineaGlobal = 0;
-minutosGlobal = 0;
-
-// 🔥 LIMPIAR RESULTADOS
-document.getElementById("totalHoras").innerText = "0";
-document.getElementById("totalMinutos").innerText = "0";
-document.getElementById("resultadoERP").innerText = "0%";
-
-let sem = document.getElementById("semaforo");
-if (sem) sem.style.background = "gray";
+    if (sem) sem.style.background = "gray";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
