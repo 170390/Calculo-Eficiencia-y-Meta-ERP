@@ -307,15 +307,17 @@ function cambiarModo() {
 
     // 🔥 CAMPOS QUE SOLO USA MODO COMPLETO
     let elementos = [
-        "grupoIndirectoLabel",
-        "grupoIndirectoInput",
-        "grupoComunLabel",
-        "grupoComunInput",
-        "grupoTardeIndirectoLabel",
-        "grupoTardeIndirectoInput",
-        "grupoTardeComunLabel",
-        "grupoTardeComunInput"
-    ];
+    "grupoToLineaLabel",
+    "grupoToLineaInput",
+    "grupoIndirectoLabel",
+    "grupoIndirectoInput",
+    "grupoComunLabel",
+    "grupoComunInput",
+    "grupoTardeIndirectoLabel",
+    "grupoTardeIndirectoInput",
+    "grupoTardeComunLabel",
+    "grupoTardeComunInput"
+];
 
     // 🔥 MOSTRAR / OCULTAR CAMPOS
     elementos.forEach(id => {
@@ -356,17 +358,32 @@ document.addEventListener("DOMContentLoaded", function () {
             this.style.setProperty("background-color", "#fff", "important");
         });
 
-     input.addEventListener("blur", function () {
-    if (this.value.trim() !== "") {
-        this.style.setProperty("background-color", "#e9f7ef", "important");
-        this.style.setProperty("border-color", "#28a745", "important");
-    } else {
-        this.style.setProperty("background-color", "#fdecea", "important");
-        this.style.setProperty("border-color", "#f5c2c7", "important");
-    }
-});
+        input.addEventListener("blur", function () {
+            if (this.value.trim() !== "") {
+                this.style.setProperty("background-color", "#e9f7ef", "important");
+                this.style.setProperty("border-color", "#28a745", "important");
+            } else {
+                this.style.setProperty("background-color", "#fdecea", "important");
+                this.style.setProperty("border-color", "#f5c2c7", "important");
+            }
+        });
 
     });
+
+    // 🔥 SINCRONIZAR SOLO EN MODO COMPLETO
+    document.getElementById("toLinea").addEventListener("input", function () {
+
+        let modo = document.getElementById("modoCalculo").value;
+
+        if (modo !== "directo") {
+
+            document.getElementById("toLineaHoras").value = this.value;
+
+        }
+
+    });
+
+});
 
 });
 
