@@ -752,3 +752,11 @@ body.dark-mode .input-error {
 #punto5 {
     display: none;
 }
+
+#punto1,
+#punto2,
+#punto3,
+#punto4,
+#punto5 {
+    display: none !important;
+}
