@@ -307,6 +307,8 @@ function cambiarModo() {
 
     // 🔥 CAMPOS QUE SOLO USA MODO COMPLETO
     let elementos = [
+    "grupoTotalPersonalLabel",
+    "grupoTotalPersonalInput",   
     "grupoToLineaLabel",
     "grupoToLineaInput",
     "grupoIndirectoLabel",
@@ -330,6 +332,10 @@ function cambiarModo() {
 
     });
 
+    // 🔥 RENOMBRAR VISUALMENTE
+    document.querySelectorAll("#punto6 .num")[0].innerText = "1.";
+    document.querySelectorAll("#punto7 .num")[0].innerText = "2."; 
+    
     // 🔥 RESETEAR VARIABLES
     horasAsignadasGlobal = 0;
     horasLineaGlobal = 0;
