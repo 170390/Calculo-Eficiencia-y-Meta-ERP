@@ -333,8 +333,12 @@ function cambiarModo() {
     });
 
     // 🔥 RENOMBRAR VISUALMENTE
-    document.querySelectorAll("#punto6 .num")[0].innerText = "1.";
-    document.querySelectorAll("#punto7 .num")[0].innerText = "2."; 
+     let num6 = document.querySelector("#punto6 .num");
+     let num7 = document.querySelector("#punto7 .num");
+
+   // 🔥 CAMBIO VISUAL SIEMPRE
+     if (num6) num6.innerText = "1.";
+     if (num7) num7.innerText = "2.";
     
     // 🔥 RESETEAR VARIABLES
     horasAsignadasGlobal = 0;
