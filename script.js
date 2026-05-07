@@ -391,8 +391,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-});
-
 function limpiarTodo() {
 
     console.log("Limpiando...");
